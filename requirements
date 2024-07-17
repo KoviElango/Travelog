@@ -1,0 +1,15 @@
+App
+RouteClass
+Send location data to AI model
+get list of tourist spots
+send the user selected list to AI
+get a simple tracvel itenary ready
+
+Service Classes
+fetch location
+Tourist spots
+
+Display Class
+Location
+TouristSpots
+
