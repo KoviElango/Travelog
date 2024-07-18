@@ -10,19 +10,20 @@ class TouristSpotService:
     async def fetch_tourist_spots(self, name: str, country: str):
         headers = {
             "accept": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "Authorization": self.api_key
         }
         params = {
             "near": f"{name}, {country}",
             "limit": 10
         }
-        logging.info(f"Fetching tourist spots for {name}, {country} with headers {headers} and params {params}")
+        logging.info(f"Fetching tourist spots with headers {headers} and params {params}")
 
         async with httpx.AsyncClient() as client:
             response = await client.get(self.api_url, headers=headers, params=params)
             logging.info(f"API response status: {response.status_code}")
             logging.info(f"API response content: {response.text}")
             if response.status_code == 200:
+                logging.info(f"API response JSON: {response.json()}")
                 return response.json()
             else:
                 logging.error(f"Error fetching tourist spots: {response.text}")
