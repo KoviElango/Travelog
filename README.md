@@ -4,18 +4,18 @@ This project is a Travel Planner and Guide application that allows users to sear
 
 Features:
 
-Location Search: Users can search for tourist spots in a specific location.
-Tourist Spot Details: Detailed information about each tourist spot, including name, address, categories, and distance.
-Itinerary Planning: Users can select spots they want to visit and plan their travel itinerary accordingly.
+  Location Search: Users can search for tourist spots in a specific location.
+  Tourist Spot Details: Detailed information about each tourist spot, including name, address, categories, and distance.
+  Itinerary Planning: Users can select spots they want to visit and plan their travel itinerary accordingly.
 
 
 Tech Stack:
 
-Backend: FastAPI for handling API requests and responses.
-Data Validation: Pydantic for ensuring the integrity of the data.
-HTTP Client: HTTPx for making API calls to the Foursquare Places API.
-Frontend (in progress): React Native for building a user-friendly interface.
-API: Foursquare Places API to fetch data on tourist spots.
+  Backend: FastAPI for handling API requests and responses.
+  Data Validation: Pydantic for ensuring the integrity of the data.
+  HTTP Client: HTTPx for making API calls to the Foursquare Places API.
+  Frontend (in progress): React Native for building a user-friendly interface.
+  API: Foursquare Places API to fetch data on tourist spots.
 
 API Endpoints:
 GET /tourist_spots?name={name}&country={country}: Retrieve tourist spots for a specified location.
