@@ -1,10 +1,12 @@
 import httpx
 import logging
+from dotenv import load_dotenv
+import os
 
 class TouristSpotService:
     def __init__(self):
         self.api_url = "https://api.foursquare.com/v3/places/search"
-        self.api_key = "fsq3vcUrmJWYbR7R23z65CKc1o31iHnWYza9glh2Vq0rI0Y="
+        self.api_key = os.genenv("API_KEY1")
         logging.basicConfig(level=logging.INFO)
 
     async def fetch_tourist_spots(self, name: str, country: str):
