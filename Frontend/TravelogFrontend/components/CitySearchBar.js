@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { View, TextInput, FlatList, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { GlobalStyle } from '../styles/GlobalStyle';
-const Searchbar = ({ data, onSelect }) => {
+import ApiIntegrate from './services/ApiIntegrate';
+
+const CitySearchBar = ({ country, onSelect }) => {
   const [searchText, setSearchText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
-  const handleSearch = (text) => {
+  const handleSearch = async (text) => {
     setSearchText(text);
-    if (text) {
-      const newData = data.filter((item) => {
+    if (text && country) {
+      const cities = await ApiIntegrate.fetchCities(country);
+      const newData = cities.filter((item) => {
         const itemData = item.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -31,7 +34,7 @@ const Searchbar = ({ data, onSelect }) => {
       <View style={GlobalStyle.inputContainer}>
         <Icon name="search" size={20} />
         <TextInput
-          placeholder="Search"
+          placeholder="Search City"
           value={searchText}
           onChangeText={(text) => handleSearch(text)}
           style={GlobalStyle.textInput}
@@ -49,4 +52,4 @@ const Searchbar = ({ data, onSelect }) => {
   );
 };
 
-export default Searchbar;
+export default CitySearchBar;

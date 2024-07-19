@@ -43,4 +43,15 @@ export const GlobalStyle = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
       },
+      appContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 50,
+      },
+      selectedText: {
+        marginTop: 20,
+        fontSize: 18,
+        fontWeight: 'bold',
+      },
 });
