@@ -11,7 +11,7 @@ const CountrySearchBar = ({ onSelect }) => {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      const countryList = await ApiIntegrate.fetchCountries();
+      const countryList = await ApiIntegrate.fetchCountriesAndCities();
       setCountries(countryList);
     };
     fetchCountries();
@@ -32,7 +32,7 @@ const CountrySearchBar = ({ onSelect }) => {
   };
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => { onSelect(item.name); setSearchText(''); setFilteredData([]); }}>
+    <TouchableOpacity onPress={() => { onSelect(item); setSearchText(''); setFilteredData([]); }}>
       <Text style={GlobalStyle.itemText}>{item.name}</Text>
     </TouchableOpacity>
   );
@@ -51,7 +51,7 @@ const CountrySearchBar = ({ onSelect }) => {
       {filteredData.length > 0 && (
         <FlatList
           data={filteredData}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.iso2}
           renderItem={renderItem}
           style={GlobalStyle.dropdown}
         />

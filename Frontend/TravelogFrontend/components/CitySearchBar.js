@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TextInput, FlatList, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { GlobalStyle } from '../styles/GlobalStyle';
-import ApiIntegrate from './services/ApiIntegrate';
 
 const CitySearchBar = ({ country, onSelect }) => {
   const [searchText, setSearchText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [cities, setCities] = useState([]);
 
-  const handleSearch = async (text) => {
+  useEffect(() => {
+    if (country) {
+      setCities(country.cities);
+    }
+  }, [country]);
+
+  const handleSearch = (text) => {
     setSearchText(text);
-    if (text && country) {
-      const cities = await ApiIntegrate.fetchCities(country);
+    if (text && cities) {
       const newData = cities.filter((item) => {
         const itemData = item.toUpperCase();
         const textData = text.toUpperCase();

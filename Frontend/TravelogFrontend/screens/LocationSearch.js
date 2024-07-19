@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { GlobalStyle } from '../styles/GlobalStyle';
-import CountrySearchBar from '../components/CountrySearchBar'; // Use relative paths
-import CitySearchBar from '../components/CitySearchBar'; // Use relative paths
+import CountrySearchBar from '../components/CountrySearchBar';
+import CitySearchBar from '../components/CitySearchBar';
 
 const LocationSearch = ({ navigation }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -15,7 +15,7 @@ const LocationSearch = ({ navigation }) => {
       {selectedCountry && (
         <>
           <Text style={GlobalStyle.selectedText}>Selected Country: {selectedCountry.name}</Text>
-          <CitySearchBar country={selectedCountry.name} onSelect={(city) => setSelectedCity(city)} />
+          <CitySearchBar country={selectedCountry} onSelect={(city) => setSelectedCity(city)} />
         </>
       )}
       {selectedCity && (

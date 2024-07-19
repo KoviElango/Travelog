@@ -5,27 +5,16 @@ class ApiIntegrate {
     this.baseUrl = 'https://countriesnow.space/api/v0.1';
   }
 
-  async fetchCountries() {
+  async fetchCountriesAndCities() {
     try {
-      const response = await axios.get(`${this.baseUrl}/countries/iso`);
+      const response = await axios.get(`${this.baseUrl}/countries`);
       return response.data.data.map(country => ({
-        id: country.Iso2,
-        name: country.name,
+        iso2: country.iso2,
+        name: country.country,
+        cities: country.cities,
       }));
     } catch (error) {
-      console.error('Error fetching countries:', error);
-      return [];
-    }
-  }
-
-  async fetchCities(country) {
-    try {
-      const response = await axios.post(`${this.baseUrl}/countries/cities`, {
-        country: country
-      });
-      return response.data.data;
-    } catch (error) {
-      console.error('Error fetching cities:', error);
+      console.error('Error fetching countries and cities:', error);
       return [];
     }
   }
