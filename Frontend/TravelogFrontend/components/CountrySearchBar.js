@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TextInput, FlatList, TouchableOpacity, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { GlobalStyle } from '../styles/GlobalStyle';
-import ApiIntegrate from './services/ApiIntegrate';
+import ApiIntegrate from '../services/ApiIntegrate';
 
 const CountrySearchBar = ({ onSelect }) => {
   const [searchText, setSearchText] = useState('');
@@ -24,7 +24,7 @@ const CountrySearchBar = ({ onSelect }) => {
         const itemData = item.name.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
-      });
+      }).slice(0, 5); // Limit results to top 5
       setFilteredData(newData);
     } else {
       setFilteredData([]);

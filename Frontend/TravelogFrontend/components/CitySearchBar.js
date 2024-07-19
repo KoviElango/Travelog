@@ -21,7 +21,7 @@ const CitySearchBar = ({ country, onSelect }) => {
         const itemData = item.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
-      });
+      }).slice(0, 5); // Limit results to top 5
       setFilteredData(newData);
     } else {
       setFilteredData([]);
