@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import CountrySearchBar from './components/CountrySearchBar'; // Use relative paths
-import CitySearchBar from './components/CitySearchBar'; // Use relative paths
+import CountrySearchBar from './components/CountrySearchBar';
+import CitySearchBar from './components/CitySearchBar';
 import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = () => {
