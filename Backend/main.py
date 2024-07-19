@@ -16,3 +16,6 @@ if __name__ == "__main__":
     import uvicorn
     logging.info("Starting Uvicorn")
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# http://127.0.0.1:8000/tourist_spots?name=Chennai&country=India
+# http://localhost:8000/
