@@ -21,3 +21,4 @@ async def get_tourist_spots(location: Location = Depends()):
 
 
 #http://127.0.0.1:8000/tourist_spots?name=Chennai&country=India
+#Backend
