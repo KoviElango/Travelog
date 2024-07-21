@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - CITY=Chennai
+      - COUNTRY=India
+      - API_KEY=${API_KEY}

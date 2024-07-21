@@ -6,10 +6,8 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY app/ .
 
-EXPOSE 8000
+RUN echo "Files in /usr/src/app:" && ls -l /usr/src/app
 
-ENV PYTHONUNBUFFERED=1
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
